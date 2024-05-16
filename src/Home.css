@@ -1,0 +1,303 @@
+@font-face {
+    font-family: 'Potter';
+    src: url('fonts/HARRYP__.TTF') format('truetype');
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('fonts/static/Montserrat-Black.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Montserrat-Light';
+    src: url('fonts/static/Montserrat-Light.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Montserrat-Medium';
+    src: url('fonts/static/Montserrat-Medium.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Montserrat-Thin';
+    src: url('fonts/static/Montserrat-Thin.ttf') format('truetype');
+}
+
+
+.Home {
+    background-color: #383838;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    position: relative;
+}
+
+.Home-background {
+    width: 100%;
+    opacity: 0.8;
+    position: relative;
+}
+
+.Home-button {
+    position: absolute;
+    z-index: 2;
+    top: 60vh;
+    left: 5vw;
+    width: 25vw;
+    height: 7vh;
+    border-radius: 15px;
+    cursor: pointer;
+    background-color: #595959;
+    color: #B49B51;
+    border: 1px solid #393939;
+    font-size: 2rem;
+    font-family: 'Montserrat-Medium';
+}
+
+.Home-header {
+    position: absolute;
+    z-index: 2;
+}
+
+.Home-heading {
+    width: 70vw;
+    position: absolute;
+    top: 30vh;
+    left: 5vw;
+    font-family: "Potter";
+    font-size: 10em;
+    color: #B49B51;
+    text-shadow: 0 0 0.6rem #B49B51, 0 0 1.5rem #DFD2BA,
+        -0.2rem 0.1rem 1rem #DFD2BA, 0.2rem 0.1rem 1rem #DFD2BA,
+        0 -0.5rem 2rem #B49B51, 0 0.5rem 3rem #B49B51;
+    animation: shine 2s forwards, flicker infinite;
+}
+
+.margin-right {
+    margin-right: 1.5rem;
+}
+
+/* --------------------------- Animations --------------------------- */
+
+.flicker {
+    animation: shine 2s forwards, blink 3s 2s infinite;
+}
+  
+.fast-flicker {
+    animation: shine 2s forwards, blink 10s 2s infinite;
+}
+
+.fast-flicker:nth-child(1) {
+    animation-delay: 1.5s;
+}
+
+.fast-flicker:nth-child(2) {
+    animation-delay: 1s;
+}
+
+.fast-flicker:nth-child(3) {
+    animation-delay: 2.5s;
+}
+
+.fast-flicker:nth-child(4) {
+    animation-delay: 1.3s;
+}
+
+.fast-flicker:nth-child(5) {
+    animation-delay: 1.9s;
+}
+
+.fast-flicker:nth-child(6) {
+    animation-delay: 1.1s;
+}
+  
+@keyframes blink {
+    0%,
+    22%,
+    36%,
+    75% {
+        color: #B49B51;
+        text-shadow: 0 0 0.6rem #B49B51, 0 0 1.5rem #DFD2BA,
+        -0.2rem 0.1rem 1rem #DFD2BA, 0.2rem 0.1rem 1rem #DFD2BA,
+        0 -0.5rem 2rem #B49B51, 0 0.5rem 3rem #B49B51;
+    }
+    28%,
+    33% {
+        color: #DFD2BA;
+        text-shadow: none;
+    }
+    82%,
+    97% {
+        color: #B49B51;
+        text-shadow: none;
+    }
+}
+
+@keyframes flicker {
+    from {
+        opacity: 1;
+    }
+
+    4% {
+        opacity: 0.9;
+    }
+
+    6% {
+        opacity: 0.85;
+    }
+
+    8% {
+        opacity: 0.95;
+    }
+
+    10% {
+        opacity: 0.9;
+    }
+
+    11% {
+        opacity: 0.922;
+    }
+
+    12% {
+        opacity: 0.9;
+    }
+
+    14% {
+        opacity: 0.95;
+    }
+
+    16% {
+        opacity: 0.98;
+    }
+
+    17% {
+        opacity: 0.9;
+    }
+
+    19% {
+        opacity: 0.93;
+    }
+
+    20% {
+        opacity: 0.99;
+    }
+
+    24% {
+        opacity: 1;
+    }
+
+    26% {
+        opacity: 0.94;
+    }
+
+    28% {
+        opacity: 0.98;
+    }
+
+    37% {
+        opacity: 0.93;
+    }
+
+    38% {
+        opacity: 0.5;
+    }
+
+    39% {
+        opacity: 0.96;
+    }
+
+    42% {
+        opacity: 1;
+    }
+
+    44% {
+        opacity: 0.97;
+    }
+
+    46% {
+        opacity: 0.94;
+    }
+
+    56% {
+        opacity: 0.9;
+    }
+
+    58% {
+        opacity: 0.9;
+    }
+
+    60% {
+        opacity: 0.99;
+    }
+
+    68% {
+        opacity: 1;
+    }
+
+    70% {
+        opacity: 0.9;
+    }
+
+    72% {
+        opacity: 0.95;
+    }
+
+    93% {
+        opacity: 0.93;
+    }
+
+    95% {
+        opacity: 0.95;
+    }
+
+    97% {
+        opacity: 0.93;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes shine {
+    0% {
+        color: #B49B51;
+        text-shadow: none;
+    }
+    100% {
+        color: #B49B51;
+        text-shadow: 0 0 0.6rem #B49B51, 0 0 1.5rem #DFD2BA,
+        -0.2rem 0.1rem 1rem #DFD2BA, 0.2rem 0.1rem 1rem #DFD2BA,
+        0 -0.5rem 2rem #B49B51, 0 0.5rem 3rem #B49B51;
+    }
+}
+
+.hvr-grow-shadow {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: box-shadow, transform;
+    transition-property: box-shadow, transform;
+}
+
+.hvr-grow-shadow:hover, .hvr-grow-shadow:focus, .hvr-grow-shadow:active {
+    box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+.Home-background,
+.Home-header {
+  transition: transform 0.5s ease-out; /* Apply a transition to the transform property */
+}
+
+/* Final state of the screens */
+.Home-background.slide-out,
+.Home-header.slide-out {
+  transform: translateX(-100%); /* Slide out to the left */
+}
+
