@@ -1,26 +1,26 @@
 @font-face {
     font-family: 'Potter';
-    src: url('fonts/HARRYP__.TTF') format('truetype');
+    src: url('../fonts/HARRYP__.TTF') format('truetype');
 }
 
 @font-face {
     font-family: 'Montserrat';
-    src: url('fonts/static/Montserrat-Black.ttf') format('truetype');
+    src: url('../fonts/static/Montserrat-Black.ttf') format('truetype');
 }
 
 @font-face {
     font-family: 'Montserrat-Light';
-    src: url('fonts/static/Montserrat-Light.ttf') format('truetype');
+    src: url('../fonts/static/Montserrat-Light.ttf') format('truetype');
 }
 
 @font-face {
     font-family: 'Montserrat-Medium';
-    src: url('fonts/static/Montserrat-Medium.ttf') format('truetype');
+    src: url('../fonts/static/Montserrat-Medium.ttf') format('truetype');
 }
 
 @font-face {
     font-family: 'Montserrat-Thin';
-    src: url('fonts/static/Montserrat-Thin.ttf') format('truetype');
+    src: url('../fonts/static/Montserrat-Thin.ttf') format('truetype');
 }
 
 
@@ -288,16 +288,5 @@
     box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
     -webkit-transform: scale(1.1);
     transform: scale(1.1);
-}
-
-.Home-background,
-.Home-header {
-  transition: transform 0.5s ease-out; /* Apply a transition to the transform property */
-}
-
-/* Final state of the screens */
-.Home-background.slide-out,
-.Home-header.slide-out {
-  transform: translateX(-100%); /* Slide out to the left */
 }
 

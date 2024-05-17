@@ -1,0 +1,88 @@
+@font-face {
+    font-family: 'Montserrat-Medium';
+    src: url('../fonts/static/Montserrat-Medium.ttf') format('truetype');
+}
+
+body {
+    background-color: #595959;
+    font-family: 'Montserrat-Medium';
+}
+
+.PlayerSelect {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.PlayerSelect-button {
+    padding: 0.5rem;
+    border-radius: 15px;
+    cursor: pointer;
+    background-color: #595959;
+    color: #B49B51;
+    border: 1px solid #393939;
+    font-size: 1.5rem;
+    font-family: 'Montserrat-Medium';
+}
+
+.PlayerSelect-container {
+    background-color: rgb(54, 54, 54, 0.7);
+    width: 75vw;
+    height: 85vh;
+    border-radius: 25px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.PlayerSelect-heading {
+    font-size: 3rem;
+}
+
+.PlayerSelect-player-option {
+    display: inline-block;
+    font-size: 2rem;
+    margin: 2rem;
+    cursor: pointer;
+}
+
+.PlayerSelect-player-option.selected {
+    color: #B49B51;
+}
+
+.PlayerSelect-player-option:hover {
+    color: #B49B51;
+}
+
+.PlayerSelect-player {
+    display: flex;
+}
+
+.PlayerSelect-players{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+/* --------------------------- Animations --------------------------- */
+
+.hvr-grow-shadow {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: box-shadow, transform;
+    transition-property: box-shadow, transform;
+}
+
+.hvr-grow-shadow:hover, .hvr-grow-shadow:focus, .hvr-grow-shadow:active {
+    box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}

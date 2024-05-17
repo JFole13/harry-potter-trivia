@@ -1,0 +1,21 @@
+.PlayerModal {
+    position: absolute;
+    z-index: 2;
+    background-color: rgb(54, 54, 54);
+    width: 75vw;
+    height: 85vh;
+    border-radius: 25px;
+    bottom: 7.5%;
+    right: 12.5%;
+    overflow: scroll;
+}
+
+.PlayerModal::-webkit-scrollbar {
+    display: none;
+}
+
+.PlayerModal-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
