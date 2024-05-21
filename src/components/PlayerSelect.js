@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Player from './Player.js';
+import defaultProfile from "../images/default-profile.png";
 import { Link } from "react-router-dom";
 
 
@@ -51,12 +52,37 @@ import { Link } from "react-router-dom";
 // }
 
 function PlayerSelect() {
+    // const [selectedPlayerCount, setSelectedPlayerCount] = useState(4);
+    // const [playerPictures, setPlayerPictures] = useState({defaultProfile, defaultProfile, defaultProfile, defaultProfile});
+
+    // const handlePlayerSelect = (count) => {
+    //     setSelectedPlayerCount(count);
+    //     setPlayerPictures({});
+    // };
+
+    // const handlePictureSelect = (playerNumber, picture) => {
+    //     setPlayerPictures(prevState => ({
+    //         ...prevState,
+    //         [playerNumber]: picture
+    //     }));
+    // };
+
     const [selectedPlayerCount, setSelectedPlayerCount] = useState(4);
-    const [playerPictures, setPlayerPictures] = useState({});
+    const [playerPictures, setPlayerPictures] = useState(() => {
+        let initialPictures = {};
+        for (let i = 1; i <= selectedPlayerCount; i++) {
+            initialPictures[i] = defaultProfile;
+        }
+        return initialPictures;
+    });
 
     const handlePlayerSelect = (count) => {
         setSelectedPlayerCount(count);
-        setPlayerPictures({});
+        let newPictures = {};
+        for (let i = 1; i <= count; i++) {
+            newPictures[i] = defaultProfile;
+        }
+        setPlayerPictures(newPictures);
     };
 
     const handlePictureSelect = (playerNumber, picture) => {
