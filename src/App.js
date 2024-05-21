@@ -2,6 +2,7 @@ import Home from './components/Home';
 import Game from './components/Game';
 import PlayerSelect from './components/PlayerSelect';
 import './css/Home.css';
+import './css/Game.css';
 import './css/Player.css'
 import './css/PlayerSelect.css';
 import './css/PlayerModal.css'

@@ -1,0 +1,47 @@
+.Game {
+    height: 100vh;
+    display: flex;
+}
+
+.Game-board {
+    background-color: rgb(27, 27, 27);
+    border: 1px solid #424242;
+    width: 60vw;
+}
+
+.Game-player-score {
+    color: #fff;
+    text-align: center;
+    font-size: 3rem;
+    margin: 1rem;
+    padding: 0;
+}
+
+.Game-players {
+    width: 20vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.Game-profile-picture {
+    height: 175px;
+    width: 175px;
+    border-radius: 15px;
+}
+
+.left-gradient {
+    background: rgb(38,71,56);
+    background: linear-gradient(0deg, rgba(38,71,56,1), rgb(27, 27, 27) 20%, rgb(27, 27, 27) 80%, rgba(116,0,1,1));
+}
+
+.right-gradient {
+    background: rgb(38,71,56);
+    background: linear-gradient(0deg, rgb(58, 60, 130), rgb(27, 27, 27) 20%, rgb(27, 27, 27) 80%, rgb(145, 114, 13));
+}
+
+.hey {
+    margin: 0;
+    padding: 0;
+}
