@@ -3,7 +3,7 @@ import defaultProfile from "../images/default-profile.png";
 import PlayerModal from "./PlayerModal";
 import PlayerProfileImage from "./PlayerProfileImage";
 
-function Player({ playerNumber }) {
+function Player({ playerNumber, onPictureSelect }) {
     const [isModalOpen, setIsModalOpen] = useState(false); 
     const [selectedPicture, setSelectedPicture] = useState(defaultProfile);
 
@@ -18,6 +18,7 @@ function Player({ playerNumber }) {
     const handlePictureSelection = (picture) => {
         setSelectedPicture(picture);
         setIsModalOpen(false);
+        onPictureSelect(playerNumber, picture);
     };
 
     return (

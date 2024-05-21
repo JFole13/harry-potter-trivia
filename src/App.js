@@ -1,4 +1,5 @@
 import Home from './components/Home';
+import Game from './components/Game';
 import PlayerSelect from './components/PlayerSelect';
 import './css/Home.css';
 import './css/Player.css'
@@ -15,6 +16,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/player-select" element={<PlayerSelect />} />
+          <Route path="/start" element={<Game />} />
         </Routes>
     </Router>
   );
