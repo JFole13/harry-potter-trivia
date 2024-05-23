@@ -32,8 +32,17 @@
     flex-direction: column;
 }
 
+.Game-round-title {
+    font-size: 5rem;
+    color: #fff;
+}
+
+.Game-player {
+    opacity: 0.3;
+}
+
 .Game-player.selected {
-    border: 2px solid yellow;
+    opacity: 1;
 }
 
 .Game-player-score {
@@ -77,4 +86,47 @@
 .right-gradient {
     background: rgb(38,71,56);
     background: linear-gradient(0deg, rgb(58, 60, 130), rgb(27, 27, 27) 20%, rgb(27, 27, 27) 80%, rgb(145, 114, 13));
+}
+
+/* ----------------------- Animations ----------------------- */
+
+.timer {
+    margin-top: 10px;
+}
+  
+.timer > svg {
+    width: 200px;
+    height: 200px;
+}
+
+.timer > svg > circle {
+    fill: none;
+    stroke-opacity: 0.3;
+    stroke: #aaaaaa;
+    stroke-width: 6;
+    transform-origin: center center;
+    transform: rotate(-90deg);
+}
+
+.timer > svg > circle + circle {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    stroke-linecap: round;
+    stroke-opacity: 1;
+}
+
+.timer.animatable > svg > circle + circle {
+    transition: stroke-dashoffset 0.3s ease;
+}
+
+.timer > svg > text {
+    font-size: 3rem;
+}
+
+.timer > svg > text + text {
+    font-size: 2rem;
+}
+
+.timer-text {
+    fill: #fff;
 }

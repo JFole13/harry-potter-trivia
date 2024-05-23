@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import defaultProfile from "../images/default-profile.png";
 import { useLocation } from 'react-router-dom';
 
@@ -23,6 +23,9 @@ function Game() {
     const [selectedPlayerIndex, setSelectedPlayerIndex] = useState(null);
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
     const [shuffledQuestions, setShuffledQuestions] = useState(questions);
+    const [showRoundTitle, setShowRoundTitle] = useState(true);
+    const [timeLeft, setTimeLeft] = useState(10);
+    const timerRef = useRef();
 
     const playersArray = playerPictures ? Object.entries(playerPictures) : [];
 
@@ -31,6 +34,14 @@ function Game() {
         const initialPlayerIndex = Math.floor(Math.random() * playersArray.length);
         setSelectedPlayerIndex(initialPlayerIndex);
     }, [playersArray.length]);
+
+    useEffect(() => {
+        const roundTitleTimer = setTimeout(() => {
+            setShowRoundTitle(false);
+        }, 3000); // Show round title for 5 seconds
+
+        return () => clearTimeout(roundTitleTimer);
+    }, []);
 
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -55,6 +66,31 @@ function Game() {
         );
       }, [currentQuestionIndex]);
 
+    useEffect(() => {
+        if (!showRoundTitle) {
+            const timerElement = timerRef.current;
+            const timerCircle = timerElement.querySelector('svg > circle + circle');
+            timerElement.classList.add('animatable');
+            timerCircle.style.strokeDashoffset = 0;
+
+            const countdownTimer = setInterval(() => {
+                setTimeLeft((prevTimeLeft) => {
+                    if (prevTimeLeft > 0) {
+                        const normalizedTime = (10 - prevTimeLeft + 1) / 10;
+                        timerCircle.style.strokeDashoffset = normalizedTime;
+                        return prevTimeLeft - 1;
+                    } else {
+                        clearInterval(countdownTimer);
+                        timerElement.classList.remove('animatable');
+                        return 0;
+                    }
+                });
+            }, 1000);
+
+            return () => clearInterval(countdownTimer);
+        }
+    }, [showRoundTitle]);
+
     return (
         <div className="Game">
             <div className='Game-players left-gradient'>
@@ -64,19 +100,31 @@ function Game() {
                         className={`Game-player ${selectedPlayerIndex === index ? 'selected' : ''}`}
                     >
                         <img src={picture || defaultProfile} alt={`Player ${playerNumber}`} className="Game-profile-picture" />
-                        <p className='Game-player-score'>12</p>
+                        <p className='Game-player-score'>0</p>
                     </div>
                 ))}
             </div>
             <div className="Game-board">
-                <h1 className='Game-question'>{questions[currentQuestionIndex].question}</h1>
-                <div className='Game-answers'>
-                    <div className='Game-answer'><h2 className='Game-answer-text'>{shuffledQuestions[currentQuestionIndex].answers[0]}</h2></div>
-                    <div className='Game-answer'><h2 className='Game-answer-text'>{shuffledQuestions[currentQuestionIndex].answers[1]}</h2></div>
-                    <div className='Game-answer'><h2 className='Game-answer-text'>{shuffledQuestions[currentQuestionIndex].answers[2]}</h2></div>
-                    <div className='Game-answer'><h2 className='Game-answer-text'>{shuffledQuestions[currentQuestionIndex].answers[3]}</h2></div>
-                </div>
-                <div>Timer here</div>
+            {showRoundTitle ? (
+                    <h2 className='Game-round-title'>Round 1</h2>
+                ) : (
+                    <>
+                        <h1 className='Game-question'>{questions[currentQuestionIndex].question}</h1>
+                        <div className='Game-answers'>
+                            <div className='Game-answer'><h2 className='Game-answer-text'>{shuffledQuestions[currentQuestionIndex].answers[0]}</h2></div>
+                            <div className='Game-answer'><h2 className='Game-answer-text'>{shuffledQuestions[currentQuestionIndex].answers[1]}</h2></div>
+                            <div className='Game-answer'><h2 className='Game-answer-text'>{shuffledQuestions[currentQuestionIndex].answers[2]}</h2></div>
+                            <div className='Game-answer'><h2 className='Game-answer-text'>{shuffledQuestions[currentQuestionIndex].answers[3]}</h2></div>
+                        </div>
+                        <div ref={timerRef} className="timer animatable">
+                            <svg>
+                            <circle cx="50%" cy="50%" r="45" />
+                            <circle cx="50%" cy="50%" r="45" pathLength="1" />
+                            <text x="50%" y="50%" textAnchor="middle" dy=".3em" className="timer-text">{timeLeft}</text>
+                            </svg>
+                        </div>
+                    </>
+                )}
             </div>
             <div className='Game-players right-gradient'>
                 {playersArray.slice(2, 4).map(([playerNumber, picture], index) => (
@@ -85,7 +133,7 @@ function Game() {
                         className={`Game-player ${selectedPlayerIndex === index + 2 ? 'selected' : ''}`}
                     >
                         <img src={picture || defaultProfile} alt={`Player ${playerNumber}`} className="Game-profile-picture" />
-                        <p className='Game-player-score'>14</p>
+                        <p className='Game-player-score'>0</p>
                     </div>
                 ))}
             </div>
