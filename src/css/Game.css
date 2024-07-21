@@ -88,6 +88,22 @@
     background: linear-gradient(0deg, rgb(58, 60, 130), rgb(27, 27, 27) 20%, rgb(27, 27, 27) 80%, rgb(145, 114, 13));
 }
 
+.correct {
+    background-color: #4d7d3a; /* Green background for correct answer */
+}
+
+.correct-answer {
+    background-color: #4d7d3a; /* Green background for correct answer */
+}
+
+.wrong-answer {
+    background-color: #f2dede; /* Red background for wrong answer */
+}
+
+.wrong {
+    background-color: #d35050; /* Red background for wrong answer */
+}
+
 /* ----------------------- Animations ----------------------- */
 
 .timer {
